@@ -33,5 +33,25 @@ When asked about characters or events from later books (e.g., Luna Lovegood or S
 * `main.py`: FastAPI application serving the RAG logic and the restricted LLM prompt.
 * `db_harry_potter/`: Local persistent vector storage.
 
+## 📦 Technical Rationale: Dependency Breakdown
+
+To ensure a robust, scalable, and secure RAG architecture, the following core dependencies were selected:
+* **FastAPI & Uvicorn**: Chosen for high-performance asynchronous execution, enabling the system to handle multiple AI queries concurrently without blocking the server.
+* **Pydantic**: Guarantees data integrity and strict validation for API requests, acting as a semantic guardrail.
+* **LangChain Suite**: Acts as the brain's connective tissue, orchestrating the flow between the user's query, the vector database, and the LLM response.
+* **Qdrant Client**: Manages the high-performance vector storage, ensuring that the "retrieval" part of RAG is accurate and sub-second fast.
+* **PyPDF**: Provides the underlying engine for parsing and extracting clean text from source PDF documentation.
+* **Python-Dotenv**: Ensures security by managing sensitive API keys through environment variables, following industry best practices for configuration.
+
+## 🛠️ Installation & Setup
+
+1. **Clone the repository:**
+   `git clone https://github.com/tu-usuario/hogwarts-oracle-rag.git`
+2. **Install dependencies:**
+   `pip install -r requirements.txt`
+3. **Configure Environment:** Create a `.env` file with your `OPENAI_API_KEY` and `QDRANT_COLLECTION_NAME`.
+4. **Ingest Data:** Run `python ingesta.py` to vectorize the PDFs.
+5. **Start the API:** Run `uvicorn main:app --reload`
+
 ---
 *Note: This architecture is directly applicable to corporate environments for querying internal manuals, legal documents, or private FAQs while ensuring data security and reliability.*
