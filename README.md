@@ -22,11 +22,11 @@ The system is designed to prove its "Closed-World" reliability.
 
 ### Case 1: Knowledge Within Scope
 When asked about Neville Longbottom (present in books 1 & 2), the system provides a detailed answer and cites the source files.
-![Retrieval Success](img/success_query.jpg)
+![Retrieval Success](img/success_query.png)
 
 ### Case 2: Out of Scope Prevention
 When asked about characters or events from later books (e.g., Luna Lovegood or Sirius Black), the system strictly follows the guardrails and refuses to answer.
-![Guardrail Prevention](img/guardrail_check.jpg)
+![Guardrail Prevention](img/guardrail_check.png)
 
 ## 📁 Project Structure
 * `ingesta.py`: Script for loading, splitting, and vectorizing PDF documents into Qdrant.
